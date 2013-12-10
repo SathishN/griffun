@@ -1,0 +1,28 @@
+\name{between}
+\alias{between}
+\title{Between}
+\usage{
+  between(x, low, high, ineq = F)
+}
+\arguments{
+  \item{x}{numeric}
+
+  \item{low}{numeric}
+
+  \item{high}{numeric}
+
+  \item{ineq}{boolean}
+}
+\value{
+  logical
+}
+\description{
+  This function mimics the SQL between clause and returns a
+  logical index
+}
+\examples{
+\dontrun{
+between( 1:10, 5.5, 6.5 )
+}
+}
+

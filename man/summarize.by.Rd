@@ -1,0 +1,30 @@
+\name{summarize.by}
+\alias{summarize.by}
+\title{Summarize content}
+\usage{
+  summarize.by(x, step = 1000, fun = "mean")
+}
+\arguments{
+  \item{x}{object}
+
+  \item{step}{number of entries}
+
+  \item{fun}{function}
+}
+\value{
+  vector
+}
+\description{
+  This function takes the R object on which we need to
+  obtain statistics (x), how many entries should each
+  summary contain (step, defaulting to 1000), and the
+  function we want to apply (fun, defaulting to
+  “mean”).
+}
+\examples{
+\dontrun{
+dat<-data.frame(matrix(runif(100000,0,1),ncol=10))
+summarize.by(dat)
+}
+}
+

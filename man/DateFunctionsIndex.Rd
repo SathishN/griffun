@@ -1,0 +1,27 @@
+\name{date.week.ends}
+\alias{date.month.ends}
+\alias{date.week.ends}
+\alias{date.year.ends}
+\title{Dates Index Functions}
+\usage{
+  date.week.ends(dates)
+
+  date.month.ends(dates)
+
+  date.year.ends(dates)
+}
+\arguments{
+  \item{dates}{collection of dates}
+}
+\value{
+  location of the week/month/year ends
+}
+\description{
+  Dates Index Functions
+}
+\examples{
+\dontrun{
+date.week.ends(seq(Sys.Date()-100, Sys.Date(), 1))
+}
+}
+

@@ -1,0 +1,23 @@
+\name{date.fund.data}
+\alias{date.fund.data}
+\title{determine date when fundamental data is available
+use 'date preliminary data loaded' when available
+otherwise lag 'quarter end date' 2 months for Q1/2/3 and 3 months for Q4}
+\usage{
+  date.fund.data(data)
+}
+\arguments{
+  \item{data}{time series}
+}
+\description{
+  determine date when fundamental data is available use
+  'date preliminary data loaded' when available otherwise
+  lag 'quarter end date' 2 months for Q1/2/3 and 3 months
+  for Q4
+}
+\examples{
+\dontrun{
+date.fund.data(data)
+}
+}
+

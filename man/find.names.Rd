@@ -1,0 +1,23 @@
+\name{find.names}
+\alias{find.names}
+\title{Find location of given names in all names}
+\usage{
+  find.names(find.names, all.names)
+}
+\arguments{
+  \item{find.names}{find names of columns}
+
+  \item{all.names}{all names}
+}
+\value{
+  nothing
+}
+\description{
+  Find location of given names in all names
+}
+\examples{
+\dontrun{
+find.names('Close,Volume', colnames(b[[ symbolnames[i] ]]))
+}
+}
+

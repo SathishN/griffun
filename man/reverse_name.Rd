@@ -1,0 +1,26 @@
+\name{reverse_name}
+\alias{reverse_name}
+\title{Reverse First and Last Name}
+\usage{
+  reverse_name(x, p = "TRUE")
+}
+\arguments{
+  \item{x}{string}
+
+  \item{p}{boolean}
+}
+\value{
+  string
+}
+\description{
+  When there is a "last, first" name or "last first" name
+  string, you can reverse the string to look like "first
+  last" name with this function.
+}
+\examples{
+\dontrun{
+x = "Ruth, Babe"
+reverse_name(x)
+}
+}
+

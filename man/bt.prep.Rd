@@ -1,0 +1,28 @@
+\name{bt.prep}
+\alias{bt.prep}
+\title{Prepare backtest data}
+\usage{
+  bt.prep(b, align = c("keep.all", "remove.na"),
+    dates = NULL, fill.gaps = F)
+}
+\arguments{
+  \item{b}{enviroment with symbols time series}
+
+  \item{align}{alignment type}
+
+  \item{dates}{subset of dates}
+
+  \item{F}{fill gaps introduced by merging}
+}
+\value{
+  nothing
+}
+\description{
+  Prepare backtest data
+}
+\examples{
+\dontrun{
+bt.prep(data, align='keep.all', dates='1970::2011')
+}
+}
+

@@ -1,0 +1,34 @@
+\name{find.matches}
+\alias{find.matches}
+\title{Set up a dataframe for regression}
+\usage{
+  find.matches(data, n.hist = 24, n.fore = 6,
+    n.match = NULL, model = c("linear", "ves", "ces"),
+    use.cd = FALSE)
+}
+\arguments{
+  \item{data}{vector or times series}
+
+  \item{n.hist}{number of data points used for Y in a
+  regression model}
+
+  \item{n.fore}{number of data points in the forecast
+  horizon}
+
+  \item{n.match}{number of matches requested from data set}
+
+  \item{model}{linear, ves - variable elasticity, or ces -
+  constant elasticity}
+
+  \item{use.cd}{whether to use the coefficient
+  determination or correlation}
+}
+\description{
+  This function, when supplied a vector, looks for matches
+  based on correlation or coefficient determination and
+  returns a data frame preparing for a regression model.
+  The function also outputs "newdata" to be used in the
+  forecast horizon if needed, and the location in the data
+  set where the match begins.
+}
+

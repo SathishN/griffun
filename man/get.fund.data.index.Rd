@@ -1,0 +1,23 @@
+\name{get.fund.data.index}
+\alias{get.fund.data.index}
+\title{Lookup fundamental data item index}
+\usage{
+  get.fund.data.index(label, fund, silent = T)
+}
+\arguments{
+  \item{label}{label of fundamental data item you looking
+  for}
+
+  \item{fund}{matrix with fundamental data}
+
+  \item{silent}{print debug information}
+}
+\description{
+  Lookup fundamental data item index
+}
+\examples{
+\dontrun{
+get.fund.data.index(data)
+}
+}
+

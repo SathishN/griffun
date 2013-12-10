@@ -1,0 +1,27 @@
+Package: griffun
+Version: 1.2
+Title: R functions by Drew Griffith
+Author: Drew Griffith <wgriffith2@liberty.edu>
+Maintainer: Drew Griffith <wgriffith2@liberty.edu>
+Description: R Functions
+License: GPL (>= 2)
+Depends:
+    R (>= 2.14)
+Imports:
+    xts,
+    timeDate,
+    RCurl,
+    XML,
+    quantmod,
+    stringr,
+    Hmisc
+Collate:
+    'find.matches.R'
+    'extendForecast.R'
+    'prettyR.R'
+    'griffun.R'
+    'utils.R'
+    'bt.R'
+    'data.R'
+    'fundamental.data.R'
+    'plota.R'

@@ -1,0 +1,21 @@
+\name{normalize}
+\alias{normalize}
+\title{Normalization}
+\usage{
+  normalize(x)
+}
+\arguments{
+  \item{x}{dataset}
+}
+\value{
+  numeric
+}
+\description{
+  This function will normalize a vector
+}
+\examples{
+\dontrun{
+normalize(x)
+}
+}
+

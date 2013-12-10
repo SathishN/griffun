@@ -1,0 +1,23 @@
+\name{read.excel}
+\alias{read.excel}
+\title{Excel data to R}
+\usage{
+  read.excel(header = TRUE, ...)
+}
+\arguments{
+  \item{header}{boolean}
+}
+\value{
+  object
+}
+\description{
+  This function specifies that you are reading data from
+  the clipboard, that it is tab delimited, and that it has
+  a header.
+}
+\examples{
+\dontrun{
+dat=read.excel()
+}
+}
+

@@ -1,0 +1,18 @@
+\name{sp500.components}
+\alias{sp500.components}
+\title{S&P 500 Components}
+\usage{
+  sp500.components()
+}
+\value{
+  tickers and sector
+}
+\description{
+  S&P 500 Components
+}
+\examples{
+\dontrun{
+sp500.components()
+}
+}
+
