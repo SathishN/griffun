@@ -120,7 +120,7 @@ peaks<-function(x, span = 3) {
 #'
 #' This function takes the R object on which we need to obtain statistics (x),
 #' how many entries should each summary contain (step, defaulting to 1000),
-#' and the function we want to apply (fun, defaulting to “mean”).
+#' and the function we want to apply (fun, defaulting to mean).
 #'
 #' @param x object
 #' @param step number of entries
