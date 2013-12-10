@@ -19,9 +19,8 @@
 #' @param use.cd whether to use the coefficient determination or correlation
 #' @export
 ###############################################################################
-
-find.matches <- function(data, n.hist = 24, n.fore = 6, n.match=NULL,
- 	model = c("linear","ves","ces"), use.cd = FALSE)
+find.matches <- function(data, n.hist = 35, n.fore = 15, n.match=NULL,
+ 	model = c("linear","ves","ces"), use.cd = TRUE)
 {
 require(xts)
 origdata = coredata(data)
@@ -37,33 +36,41 @@ if (is.null(n.match)) {
 if (model=="ves") {
 	n.match = floor(n.match/2)
 }
-# calc correlation
-matches = rep(NA, n.data)
+
+# correlation table
+correlation.table = rep(NA, n.data)
 for(i in 1:(n.data-(n.hist+n.fore))) {
   window = origdata[i:(n.hist+(i-1))]
-  matches[i] = cor(Y, window)
+  correlation.table[i] = cor(Y, window)
 }
-# use CD or correlation
-if (use.cd==TRUE){matches = round(matches^2,6)
-} else {matches = round(matches,6)}
+
+# CD table
+cd.table = round(abs(correlation.table)^2,6)
+
 # find matches
 max.index = c()
 max.cor = c()
-temp = matches
-	temp[ temp < mean(matches, na.rm=TRUE) ] = NA
+
+if (use.cd==TRUE){temp = cd.table
+} else {temp = correlation.table}
+
+if (use.cd==TRUE){
 for(i in 1:n.match) {
-	if(any(!is.na(temp))) {
-		index = which.max(temp)
-    correl = temp[index]
-		max.index[i] = index
-    max.cor[i] = correl # or CD...
-		temp[max(0,index):min(n.data,(index +
-			(n.fore+n.hist)))] = NA
-	}
-}
-# Get CD for output only
-if (use.cd==TRUE){max.cd = max.cor
-} else {max.cd = round(max.cor^2,6)}
+	index = which.max(temp)
+  c = temp[index]
+	max.index[i] = index
+  max.cor[i] = c
+	#temp[max(0,index):min(n.data,(index +
+	#	(n.fore+n.hist)))] = NA 12.10.13
+  temp[max(0,index)] = NA
+}} else {for(i in 1:n.match) {
+  index = which.max(temp)
+  c = temp[index]
+  max.index[i] = index
+  max.cor[i] = c
+  temp[max(0,index):min(n.data,(index +
+  	(n.fore+n.hist)))] = NA}}
+
 # model
 n.match = NROW(max.index)
 X = matrix(NA, nr=(n.match), nc=(n.hist))
@@ -81,6 +88,7 @@ if (model=="ves") {
 } else { X = t(X)
 	df = cbind(data.frame(Y=Y),data.frame(X))
 }
+
 # newdata formation
 X = matrix(NA, nr=(n.match), nc=(n.fore))
 temp = origdata
@@ -97,10 +105,10 @@ if (model=="ves") {
 } else { X = t(X)
 	newdf = data.frame(X)
 }
-out = list(df,newdf,max.index,max.cd)
+
+out = list(df,newdf,max.index)
 names(out)[1] = "rmodel"
 names(out)[2] = "fmodel"
 names(out)[3] = "matchindx"
-names(out)[4] = "matchcd"
 return(out)
 }

@@ -8,4 +8,4 @@ NULL
 # instead from github
 
 # THIS FUNCTION WILL NOT WORK PROPERLY UNLESS THE PROJECT IS CLOSED
-#devtools::document("griffun")
+# devtools::document("griffun")
