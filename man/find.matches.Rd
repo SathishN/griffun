@@ -2,9 +2,9 @@
 \alias{find.matches}
 \title{Set up a dataframe for regression}
 \usage{
-  find.matches(data, n.hist = 24, n.fore = 6,
+  find.matches(data, n.hist = 35, n.fore = 15,
     n.match = NULL, model = c("linear", "ves", "ces"),
-    use.cd = FALSE)
+    use.cd = TRUE)
 }
 \arguments{
   \item{data}{vector or times series}
