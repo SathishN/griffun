@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# Copyright (C) 2013  Drew Griffith
+# Copyright (C) 2014  Drew Griffith
 #
 # For more information please visit my blog at http://drewgriffith15.tumblr.com/
 ###############################################################################
@@ -16,7 +16,8 @@
 extendForecast <- function(dates, forecast) {
   require(timeDate)
   require(xts)
-  # TESTING FOR FREQ: 1-daily; 4-quartly; 12-monthly
+  # TESTING FOR FREQ: 1-daily; 4-quarterly; 12-monthly
+  # weekly is not supported by timeDate package
   freq <- frequency(as.timeDate(dates))
   if (freq == 1) {
     h <- NROW(forecast)
@@ -30,7 +31,7 @@ extendForecast <- function(dates, forecast) {
   if (freq == 4) {
     h <- NROW(forecast)
     new.dates <- as.timeDate(dates)
-    new.dates <- as.Date(alignMonthly(timeSequence(from = last(dates) + 
+    new.dates <- as.Date(alignQuarterly(timeSequence(from = last(dates) + 
                                                      1, by = "quarter", length.out = h)))
     return(as.xts(forecast, new.dates))
   }

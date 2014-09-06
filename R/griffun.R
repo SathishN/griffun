@@ -7,5 +7,6 @@ NULL
 # you can click build and reload - which should reload or install the package locally
 # instead from github
 
-# THIS FUNCTION WILL NOT WORK PROPERLY UNLESS THE PROJECT IS CLOSED
+# THIS FUNCTION WILL NOT WORK PROPERLY UNLESS THE PROJECT IS CLOSED IN Rstudio
 # devtools::document("griffun")
+# devtools::check("griffun")
