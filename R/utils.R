@@ -6,6 +6,39 @@
 ###############################################################################
 
 ###############################################################################
+#' Remove Outliers from a dataset
+#'
+#' This function removes outliers from a dataset
+#' credit for this source code goes to aL3xa on StackOverflow
+#'
+#' @param x object
+#' @param na.rm boolean
+#' 
+#' @return object
+#'
+#' @examples
+#' \dontrun{
+#' set.seed(1)
+#' x <- rnorm(100)
+#' x <- c(-10, x, 10)
+#' y <- remove_outliers(x)
+#' par(mfrow = c(1, 2))
+#' boxplot(x)
+#' boxplot(y)
+#' }
+#' @export
+###############################################################################
+
+remove.outliers <- function(x, na.rm = TRUE, ...) {
+  quant <- quantile(x, probs=c(.1, .9), na.rm = na.rm, ...)
+  i <- 1.5 * IQR(x, na.rm = na.rm)
+  y <- x
+  y[x < (qnt[1] - i)] <- NA
+  y[x > (qnt[2] + i)] <- NA
+  y
+}
+
+###############################################################################
 #' Excel data to R
 #'
 #' This function specifies that you are reading data from the clipboard,

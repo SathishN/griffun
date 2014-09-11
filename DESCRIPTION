@@ -15,13 +15,3 @@ Imports:
     quantmod,
     stringr,
     Hmisc
-Collate:
-    'find.matches.R'
-    'extendForecast.R'
-    'prettyR.R'
-    'griffun.R'
-    'utils.R'
-    'bt.R'
-    'data.R'
-    'fundamental.data.R'
-    'plota.R'
