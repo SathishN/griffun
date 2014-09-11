@@ -30,7 +30,7 @@
 ###############################################################################
 
 remove.outliers <- function(x, na.rm = TRUE, ...) {
-  quant <- quantile(x, probs=c(.1, .9), na.rm = na.rm, ...)
+  qnt <- quantile(x, probs=c(.25, .75), na.rm = na.rm, ...)
   i <- 1.5 * IQR(x, na.rm = na.rm)
   y <- x
   y[x < (qnt[1] - i)] <- NA

@@ -3,7 +3,7 @@
 \alias{index.xts}
 \title{Fast alternative to index() function for \code{\link{xts}} object}
 \usage{
-index.xts(x)
+\method{index}{xts}(x)
 }
 \arguments{
 \item{x}{\code{\link{xts}} object}
