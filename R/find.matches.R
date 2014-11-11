@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# Copyright (C) 2013  Drew Griffith
+# Copyright (C) 2014  Drew Griffith
 #
 # For more information please visit my blog at http://drewgriffith15.tumblr.com/
 ###############################################################################
@@ -27,7 +27,7 @@ origdata = coredata(data)
 n.data = NROW(origdata)
 model = match.arg(model)
 if (model =="ces") {
-	Y = round(log(origdata[((n.data-n.hist)+1):n.data]),4)
+	Y = round(log10(origdata[((n.data-n.hist)+1):n.data]),4)
 } else { Y = origdata[((n.data-n.hist)+1):n.data]
 }
 if (is.null(n.match)) {
@@ -79,11 +79,11 @@ for(i in 1:n.match) {
 	X[i,] = temp[max.index[i]:(max.index[i]+(n.hist-1))]
 }
 if (model=="ves") {
-	Z = log(X)
+	Z = log10(X)
 	X = data.frame(t(rbind(X,Z)))
 	df = cbind(data.frame(Y=Y),as.data.frame(X))
 } else if (model=="ces") {
-	X = t(log(X))
+	X = t(log10(X))
 	df = cbind(data.frame(Y=Y),data.frame(X))
 } else { X = t(X)
 	df = cbind(data.frame(Y=Y),data.frame(X))
@@ -97,10 +97,10 @@ for(i in 1:n.match) {
 		n.hist+n.fore)-1)]
 }
 if (model=="ves") {
-	Z = log(X)
+	Z = log10(X)
 	newdf = data.frame(t(rbind(X,Z)))
 } else if (model=="ces") {
-	X = t(log(X))
+	X = t(log10(X))
 	newdf = data.frame(X)
 } else { X = t(X)
 	newdf = data.frame(X)
